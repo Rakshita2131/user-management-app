@@ -1,24 +1,11 @@
 services:
-  db:
-    image: postgres:15
-    environment:
-      POSTGRES_USER: rakshita
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: userdb
-    ports:
-      - "5433:5432"
-    volumes:
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-
   app:
     build: .
     ports:
-      - "8501:8501"
+      - "8502:8501"
     environment:
-      DB_HOST: db
+      DB_HOST: 10.1.3.211
       DB_PORT: 5432
       DB_NAME: userdb
       DB_USER: rakshita
       DB_PASSWORD: postgres
-    depends_on:
-      - db

@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      containers:
+      - name: app
+        image: user-management-app
+        imagePullPolicy: Never
+        env:
+        - name: DB_HOST
+          value: "10.1.3.211"
+        - name: DB_PORT
+          value: "5432"
+        - name: DB_NAME
+          value: "userdb"
+        - name: DB_USER
+          value: "rakshita"
+        - name: DB_PASSWORD
+          value: "postgres"
+        ports:
+        - containerPort: 8501
