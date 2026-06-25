@@ -18,14 +18,29 @@ spec:
         imagePullPolicy: Never
         env:
         - name: DB_HOST
-          value: "10.1.3.211"
+          valueFrom:
+            configMapKeyRef:
+              name: db-config
+              key: DB_HOST
         - name: DB_PORT
-          value: "5432"
+          valueFrom:
+            configMapKeyRef:
+              name: db-config
+              key: DB_PORT
         - name: DB_NAME
-          value: "userdb"
+          valueFrom:
+            configMapKeyRef:
+              name: db-config
+              key: DB_NAME
         - name: DB_USER
-          value: "rakshita"
+          valueFrom:
+            configMapKeyRef:
+              name: db-config
+              key: DB_USER
         - name: DB_PASSWORD
-          value: "postgres"
+          valueFrom:
+            secretKeyRef:
+              name: db-secret
+              key: DB_PASSWORD
         ports:
         - containerPort: 8501
