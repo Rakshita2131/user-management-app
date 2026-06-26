@@ -1,0 +1,5 @@
+- job_name: 'postgres'
+  static_configs:
+    - targets: ['10.1.0.48:9187']
+      labels:
+        instance: 'db-vm'
