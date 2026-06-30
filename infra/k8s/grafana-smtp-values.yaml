@@ -1,0 +1,19 @@
+grafana:
+  service:
+    type: NodePort
+    nodePort: 30300
+  assertNoLeakedSecrets: false
+  persistence:
+    enabled: true
+    size: 1Gi
+  grafana.ini:
+    server:
+      root_url: http://34.14.137.217:30300
+    smtp:
+      enabled: true
+      host: smtp.gmail.com:587
+      user: rakshita@zoop.one
+      password: "<YOUR_APP_PASSWORD>"
+      from_address: rakshita@zoop.one
+      from_name: Grafana Alerts
+      startTLS_policy: MandatoryStartTLS
