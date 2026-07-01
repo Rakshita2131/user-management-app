@@ -17,3 +17,7 @@ grafana:
       from_address: rakshita@zoop.one
       from_name: Grafana Alerts
       startTLS_policy: MandatoryStartTLS
+prometheus:
+  service:
+    type: NodePort
+    nodePort: 30090
